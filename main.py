@@ -44,7 +44,7 @@ class Order:
         return f"Order - {self.order_number}\n{'-' * 70}\n" \
                f"Customer - {self.customer}\n{'-' * 70}\n" +\
                '\n'.join(map(str, self.order_list())) + '\n' + '-' * 70 + '\n' + \
-               'Total' + str(self.total_order_price()) + 'UAH'
+               'Total ' + str(self.total_order_price()) + ' UAH'
 
 if __name__ == '__main__':
     battery_1 = Product('battery ABP7-12L', 776, '12v 7Ah AGM', '156 x 94 x 65')
