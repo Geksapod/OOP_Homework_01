@@ -34,20 +34,17 @@ class Order:
             self.products[product][0] += 1
 
     def order_list(self):
-        for i, j in self.products.items():
-            return f'{i} - {j[0]} pcs'
-
+        order_list = [f'{i} - {j[0]} pcs' for i, j in self.products.items()]
+        return order_list
 
     def total_order_price(self):
         return sum([prod(self.products[i]) for i in self.products])
 
     def __str__(self):
         return f"Order - {self.order_number}\n{'-' * 70}\n" \
-               f"Customer - {self.customer}\n{'-' * 70}\n" \
-               f"{self.order_list()}\n{'-' * 70}\n" \
-               f"Total {self.total_order_price()} UAH"
-
-
+               f"Customer - {self.customer}\n{'-' * 70}\n" +\
+               '\n'.join(map(str, self.order_list())) + '\n' + '-' * 70 + '\n' + \
+               'Total' + str(self.total_order_price()) + 'UAH'
 
 if __name__ == '__main__':
     battery_1 = Product('battery ABP7-12L', 776, '12v 7Ah AGM', '156 x 94 x 65')
@@ -62,6 +59,7 @@ if __name__ == '__main__':
     order_1.add_product(battery_4.name, battery_4.price)
     order_1.add_product(battery_1.name, battery_1.price)
     order_1.add_product(battery_2.name, battery_2.price)
+
 
     print(order_1)
 
