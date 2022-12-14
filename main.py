@@ -1,7 +1,9 @@
 from math import prod
 
+
 class Product:
     """Class describes a product."""
+
     def __init__(self, name: str, price: int, description: str, size: str):
         """Initialisation of product's attributes.
 
@@ -41,6 +43,7 @@ class Product:
 
 class Customer:
     """Class describes a customer."""
+
     def __init__(self, surname: str, name: str, phone_number: str, location: str):
         """Initialisation of customer's attributes.
 
