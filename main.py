@@ -12,13 +12,30 @@ if __name__ == '__main__':
 
         customer_1 = customer.Customer('Petrenko', 'Petro', '+380123123123', 'Kyiv')
         order_1 = order.Order('No 0001', customer_1)
-        order_1.add_product(battery_1.name, battery_1.price)
-        order_1.add_product(battery_4.name, battery_4.price)
-        order_1.add_product(battery_1.name, battery_1.price)
-        order_1.add_product(battery_2.name, battery_2.price)
+        order_1.add_product(battery_1, battery_1.price, quantity=2)
+        order_1.add_product(battery_4, battery_4.price)
+        order_1.add_product(battery_2, battery_2.price)
 
     except (TypeError, ValueError) as error:
         print(error)
+
+    print(order_1, "\n")
+
+    try:
+        print(f"{order_1[battery_2][0]} - {order_1[battery_1][1]} pcs\n")
+
+        for items in order_1:
+            product, quantity = (*items,)
+            print(f"{product} - {quantity} pcs")
+
+        print(f"{order_1[battery_3][0]} - {order_1[battery_1][1]} pcs")
+
+    except KeyError as error:
+        print(error)
+
+
+
+
 
 
 

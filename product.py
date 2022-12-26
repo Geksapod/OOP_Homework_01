@@ -35,4 +35,4 @@ class Product:
     def __str__(self):
         """Return formatted product's name."""
 
-        return f"{self.name} - {self.price} UAH\n{self.description}\n{self.size}"
+        return f"{self.name}, {self.description}, {self.size}mm - {self.price} UAH"

@@ -1,3 +1,5 @@
+"""This module provides access to Customer class"""
+
 class Customer:
     """Class describes a customer."""
 
